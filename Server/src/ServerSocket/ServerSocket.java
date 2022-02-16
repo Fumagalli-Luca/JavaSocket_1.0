@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package serverSocket;
+package ServerSocket;
 
 import java.net.*;
 import java.io.*;
@@ -14,14 +14,14 @@ import java.util.logging.Logger;
  *
  * @author fumagalli.luca
  */
-public class Server {
+public class ServerSocket {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         try {
-            Server serverSocket = new Server(5000);
+            ServerSocket serverSocket = new ServerSocket(5000);
             Socket clientSocket = serverSocket.accept();
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -39,7 +39,7 @@ public class Server {
             clientSocket.close();
             serverSocket.close();
         } catch (IOException ex) {
-            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServerSocket.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
